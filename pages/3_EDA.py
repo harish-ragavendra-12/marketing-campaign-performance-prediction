@@ -91,6 +91,8 @@ categorical_columns = df.select_dtypes(
     include=["object"]
 ).columns.tolist()
 
+categorical_columns.remove("Campaign_ID")
+
 st.subheader("Count Plot")
 
 count_column = st.selectbox(
@@ -124,7 +126,8 @@ with col1:
 
     x_axis = st.selectbox(
         "X-axis",
-        numeric_columns
+        numeric_columns,
+        key="scatter_x"
     )
 
 with col2:
@@ -132,7 +135,8 @@ with col2:
     y_axis = st.selectbox(
         "Y-axis",
         numeric_columns,
-        index=1
+        index=1,
+        key="scatter_y"
     )
 
 fig, ax = plt.subplots(figsize=(8,5))

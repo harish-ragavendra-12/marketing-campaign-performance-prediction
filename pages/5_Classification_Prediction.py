@@ -117,6 +117,116 @@ duration_categories = sorted(
 )
 
 # ==========================================================
+# USER INPUT
+# ==========================================================
+
+st.subheader("Enter Campaign Details")
+
+col1, col2 = st.columns(2)
+
+with col1:
+
+    campaign_type = st.selectbox(
+        "Campaign Type",
+        campaign_types
+    )
+
+    target = st.selectbox(
+        "Target Audience",
+        target_audience
+    )
+
+    language = st.selectbox(
+        "Language",
+        languages
+    )
+
+    customer_segment = st.selectbox(
+        "Customer Segment",
+        customer_segments
+    )
+
+    brand = st.selectbox(
+        "Brand",
+        brands
+    )
+
+    duration_category = st.selectbox(
+        "Duration Category",
+        duration_categories
+    )
+
+    duration = st.number_input(
+        "Duration (Days)",
+        min_value=1,
+        value=30
+    )
+
+with col2:
+
+    impressions = st.number_input(
+        "Impressions",
+        min_value=0,
+        value=10000
+    )
+
+    clicks = st.number_input(
+        "Clicks",
+        min_value=0,
+        value=500
+    )
+
+    leads = st.number_input(
+        "Leads",
+        min_value=0,
+        value=100
+    )
+
+    conversions = st.number_input(
+        "Conversions",
+        min_value=0,
+        value=20
+    )
+
+    acquisition_cost = st.number_input(
+        "Acquisition Cost",
+        min_value=0.0,
+        value=5000.0
+    )
+
+    engagement_score = st.number_input(
+        "Engagement Score",
+        min_value=0.0,
+        value=75.0
+    )
+
+st.markdown("### Marketing Channels")
+
+col1, col2, col3 = st.columns(3)
+
+with col1:
+    email = st.checkbox("Email")
+
+    facebook = st.checkbox("Facebook")
+
+with col2:
+    google = st.checkbox("Google")
+
+    instagram = st.checkbox("Instagram")
+
+with col3:
+    whatsapp = st.checkbox("WhatsApp")
+
+    youtube = st.checkbox("YouTube")
+
+st.markdown("")
+
+predict_button = st.button(
+    "Predict Profit / Loss",
+    use_container_width=True
+)
+
+# ==========================================================
 # CLASSIFICATION PREDICTION
 # ==========================================================
 
